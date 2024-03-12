@@ -15,15 +15,12 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="TList.cpp">
+    <ClCompile Include="TPolinom.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="TList.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="THeadList.h">
+    <ClInclude Include="TPolinom.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>

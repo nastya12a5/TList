@@ -16,13 +16,13 @@ protected:
 	TNode<T>* pFirst, * pLast, * pStop, * pCurr, * pPr;
 	int pos, len;
 public:
-	TList()
+	 TList()
 	{
 		pStop = nullptr;
-		pFirst = nullptr; pLast = nullptr;
-		len = 0; pos = -1; pCurr = nullptr; pPr = nullptr;
+		pFirst = pStop; pLast = pStop;
+		len = 0; pos = -1; pCurr = pStop; pPr = pStop;
 	}
-	void DelList() {
+	virtual void DelList() {
 		TNode<T>* tmp = pFirst;
 		while (pFirst != pStop)
 		{
@@ -31,10 +31,11 @@ public:
 			tmp = pFirst;
 			
 		}
+		//pFirst = pLast = pPr = pCurr = pStop;
 		len = 0; pos = -1;
 	}
-	~TList() { DelList(); }
-	TList(const TList<T>& obj)
+	  ~TList() { DelList(); }
+	 TList(const TList<T>& obj)
 	{
 		TNode<T>* tmp = obj.pFirst;
 		
@@ -45,11 +46,11 @@ public:
 
 		}
 	}
-	void Reset()
+	virtual void Reset()
 	{
 		pCurr = pFirst; pPr = pStop; pos = 0;
 	}
-	void GoNext()
+	virtual void GoNext()
 	{
 		if (pCurr == pStop) { throw "Error"; }
 		if (pCurr != pStop)
@@ -57,11 +58,11 @@ public:
 			pPr = pCurr; pCurr = pCurr->pNext; pos++;
 		}
 	}
-	bool IsEnd()
+	virtual bool IsEnd()
 	{
 		return (pStop == pCurr);
 	}
-	void InsFirst(T _val)
+	virtual void InsFirst(T _val)
 	{
 		TNode <T>* tmp = new TNode<T>;
 		tmp->val = _val;
@@ -77,7 +78,7 @@ public:
 		len++; 
 
 	}
-	void InsCurr(T _val)
+	virtual void InsCurr(T _val)
 	{
 		if (len == 0)
 		{
@@ -95,7 +96,7 @@ public:
 			len++; pos++;
 		}
 	}
-	void InsLast(T _val)
+	virtual void InsLast(T _val)
 	{
 		TNode<T>* tmp = new TNode<T>;
 		tmp->val = _val;
@@ -112,7 +113,7 @@ public:
 		}
 		pLast = tmp; len++; pos++;
 	}
-	void DelFirst()
+	virtual void DelFirst()
 	{
 		if (len==0)
 		{
@@ -123,24 +124,32 @@ public:
 		delete tmp;
 		len--;
 	}
-	void DelCurr()
+	virtual void DelCurr()
 	{
 		if (pCurr==pStop) { throw "Error"; }
 		if (pCurr != pStop)
 		{
-			if (pCurr == pFirst) DelFirst();
-			TNode<T>* tmp = pCurr;
-			pCurr = pCurr->pNext;
-			pPr->pNext = pCurr;
-			delete tmp;
-			len--;
+			if (pCurr == pFirst)
+			{
+				DelFirst();
+				pCurr = pFirst;
+				pos = 0;
+			}
+			else
+			{
+				TNode<T>* tmp = pCurr;
+				pCurr = pCurr->pNext;
+				pPr->pNext = pCurr;
+				delete tmp;
+				len--;
+			}
 		}
 	}
-	T & getCurrent() const
+	virtual T & getCurrent() const
 	{
 		return pCurr->val;
 	}
-	void SetPos(int _pos)
+	virtual void SetPos(int _pos)
 	{
 		if (_pos < 0 || _pos >= len)
 		{

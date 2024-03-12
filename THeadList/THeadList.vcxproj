@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{d0178266-e606-4dfb-8030-79df52404826}</ProjectGuid>
-    <RootNamespace>TList</RootNamespace>
+    <ProjectGuid>{e794b5f9-4991-4950-aa0b-b44369556b0c}</ProjectGuid>
+    <RootNamespace>THeadList</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -139,11 +139,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="TList.cpp" />
+    <ClCompile Include="THeadList.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="THeadList.h" />
-    <ClInclude Include="TList.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -21,7 +21,7 @@
     <ClCompile Include="..\test_list\test_main.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="..\test_list\test_tbitfield.cpp">
+    <ClCompile Include="..\test_list\test_tlist.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
