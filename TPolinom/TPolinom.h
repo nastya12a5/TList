@@ -67,6 +67,26 @@ public:
 		}
 		return p;
 	}
+	bool operator==(TPolinom& other)
+	{
+		if (GetLenght() != other.GetLenght())
+		{
+			return false;
+		}
+		else {
+			Reset();
+			other.Reset();
+			while (!IsEnd())
+			{
+				
+				if (pCurr->val != other.pCurr->val) 
+					return false;
+				GoNext(); other.GoNext();
+				
+			}
+		}
+		return true;
+	}
 	TPolinom& operator+=(TPolinom& Q)
 	{
 		
@@ -110,6 +130,15 @@ public:
 				}
 		}
 		return *this;
+	}
+	friend TPolinom& operator -(TPolinom& p,TPolinom& q)
+	{
+		TPolinom n = q.operator*(-1);
+		p += n;
+		
+		return p;
+
+
 	}
 	TPolinom& operator -=(TPolinom& q)
 	{

@@ -14,6 +14,7 @@ int main()
    int ms2[][2] = { {2,643},{3,543},{9,101} };
    int mn2 = sizeof(ms2) / (2 * sizeof(int));
    TPolinom p1(ms2, mn2);
+   
    cout << "Polinom 2= " << p1 << endl;
    TPolinom p2 = p + p1;
    //p += p1;
@@ -28,5 +29,9 @@ int main()
    cout << "AddMonom " << p3 << endl;
    p3 -= p1;
    cout << "3-2= " << p3 << endl;
+   TPolinom p4(p3);
+   cout << p4<<endl;
+   TPolinom p5 = p4 - p1;
+   cout << p5;
 }
 

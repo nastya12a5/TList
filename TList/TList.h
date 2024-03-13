@@ -22,6 +22,7 @@ public:
 		pFirst = pStop; pLast = pStop;
 		len = 0; pos = -1; pCurr = pStop; pPr = pStop;
 	}
+	virtual int GetLenght() { return len; };
 	virtual void DelList() {
 		TNode<T>* tmp = pFirst;
 		while (pFirst != pStop)
